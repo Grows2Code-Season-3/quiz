@@ -1,10 +1,13 @@
 package org.launchcode.quiz;
 
+import org.launchcode.quiz.assignment.CodingProject;
 import org.launchcode.quiz.assignment.Quiz;
 import org.launchcode.quiz.question.CheckboxQuestion;
 import org.launchcode.quiz.question.MultipleChoiceQuestion;
 import org.launchcode.quiz.question.ShortAnswerQuestion;
 import org.launchcode.quiz.question.TrueFalseQuestion;
+
+import java.util.Date;
 
 /**
  * Created by Chris Bay
@@ -29,6 +32,15 @@ public class Main {
         quiz.addQuestion(new CheckboxQuestion("Which of the following are prime numbers?", cbChoices, cbAnswers));
 
         quiz.runQuiz();
+
+        // Create, submit, and grade a CodingProject
+        CodingProject project = new CodingProject("https://classroom.github.com/a/8nCf_KLD",
+                new Date(),
+                "Java Assignment 2");
+
+        student.addAssignment(project);
+        project.setRepositoryUrl("https://github.com/my-assignment-2");
+        project.setUserScore(1);
 
         double studentGrade = student.calculateGrade();
 
