@@ -1,10 +1,13 @@
 package org.launchcode.quiz;
 
+import org.launchcode.quiz.assignment.CodingProject;
 import org.launchcode.quiz.assignment.Quiz;
 import org.launchcode.quiz.question.CheckboxQuestion;
 import org.launchcode.quiz.question.MultipleChoiceQuestion;
 import org.launchcode.quiz.question.ShortAnswerQuestion;
 import org.launchcode.quiz.question.TrueFalseQuestion;
+
+import java.util.Date;
 
 /**
  * Created by Chris Bay
@@ -29,6 +32,14 @@ public class Main {
         quiz.addQuestion(new CheckboxQuestion("Which of the following are prime numbers?", cbChoices, cbAnswers));
 
         quiz.runQuiz();
+
+        CodingProject project = new CodingProject(new Date(), "Fork and clone and follow instructions in the README", 10);
+        student.addAssignment(project);
+
+        // submit and grade assignment
+        project.setRepositoryUrl("https://github.com/CodeCamp-Charlotte-Examples/quiz");
+        project.setUserScore(8);
+        project.setGradingComments("Nice work!");
 
         double studentGrade = student.calculateGrade();
 
