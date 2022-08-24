@@ -20,7 +20,7 @@ public class TestQuestion {
 
     @Test
     public void testGradeResponseCorrectlyGradesCorrectResponse() {
-        testQuestion.setResponse(testQuestion.getAnswer());
+        testQuestion.setResponse(testQuestion.getAnswer()); // testQuestion.setResponse("walrus");
         int grade = testQuestion.gradeResponse();
         assertEquals(testQuestion.getPointValue(), grade);
     }

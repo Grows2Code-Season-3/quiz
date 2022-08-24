@@ -16,6 +16,11 @@ public class Student {
         this.name = name;
     }
 
+    public Student(String name, ArrayList<Gradeable> assignments) {
+        this(name);
+        this.assignments.addAll(assignments);
+    }
+
     public void addAssignment(Gradeable assignment) {
         this.assignments.add(assignment);
     }
@@ -38,5 +43,9 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public ArrayList<Gradeable> getAssignments() {
+        return assignments;
     }
 }
